@@ -1,71 +1,17 @@
-# AWS
+# AWS Project - ElasticSearch for fields and values
 
 This is a sample template for AWS - Below is a brief explanation of what we have generated for you:
 
+Search Fields Options: {"ACK_ID", "PLAN_NAME", "SPONSOR_DFE_NAME", "SPONS_DFE_MAIL_US_STATE"};
+
+AWS API Gateway Prod endpoint:
 ```bash
-.
-├── HelloWorldFunction
-│   ├── build.gradle                                   <-- Java Dependencies
-│   ├── gradle                                         <-- Gradle related Boilerplate
-│   │   └── wrapper
-│   │       ├── gradle-wrapper.jar
-│   │       └── gradle-wrapper.properties
-│   ├── gradlew                                        <-- Linux/Mac Gradle Wrapper
-│   ├── gradlew.bat                                    <-- Windows Gradle Wrapper
-│   └── src
-│       ├── main
-│       │   └── java
-│       │       └── helloworld                         <-- Source code for a lambda function
-│       │           ├── App.java                       <-- Lambda function code
-│       │           └── GatewayResponse.java           <-- POJO for API Gateway Responses object
-│       └── test                                       <-- Unit tests
-│           └── java
-│               └── helloworld
-│                   └── AppTest.java
-├── README.md                                          <-- This instructions file
-└── template.yaml
+https://5p6fe93b3b.execute-api.us-east-1.amazonaws.com/Prod
 ```
 
-## Requirements
-
-* AWS CLI already configured with Administrator permission
-* [Java SE Development Kit 8 installed](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-* [Docker installed](https://www.docker.com/community-edition)
-
-## Setup process
-
-### Installing dependencies
-
+URI for search query
 ```bash
-sam build
-```
-
-You can also build on a Lambda like environment by using:
-
-```bash
-sam build --use-container
-```
-
-### Local development
-
-**Invoking function locally through local API Gateway**
-
-```bash
-sam local start-api
-```
-
-If the previous command ran successfully you should now be able to hit the following local endpoint to invoke your function `http://localhost:3000/hello`
-
-**SAM CLI** is used to emulate both Lambda and API Gateway locally and uses our `template.yaml` to understand how to bootstrap this environment (runtime, where the source code is, etc.) - The following excerpt is what the CLI will read in order to initialize an API and its routes:
-
-```yaml
-...
-Events:
-    HelloWorld:
-        Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
-        Properties:
-            Path: /hello
-            Method: get
+/?searchField={fieldName}&searchValue={fieldValue}
 ```
 
 ## Packaging and deployment
