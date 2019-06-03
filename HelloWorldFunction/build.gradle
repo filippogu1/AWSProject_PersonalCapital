@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // implementation 'com.amazonaws:aws-lambda-java-core:1.2.0'
+
+    testImplementation 'junit:junit:4.12'
+
+    // https://mvnrepository.com/artifact/com.amazonaws/aws-lambda-java-core
+    compile group: 'com.amazonaws', name: 'aws-lambda-java-core', version: '1.2.0'
+
+    // https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-elasticsearch
+    compile group: 'com.amazonaws', name: 'aws-java-sdk-elasticsearch', version: '1.11.563'
+
+    // https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
+    compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
+
+}
